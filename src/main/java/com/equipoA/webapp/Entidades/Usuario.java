@@ -5,26 +5,31 @@
 package com.equipoA.webapp.Entidades;
 
 import com.equipoA.webapp.Enum.Localidad;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
 
-/**
- *
- * @author akila
- */
+@Entity
 public class Usuario {
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name="uuid", strategy = "uuid2")
     private int ID;
-    private String nombre;
-    private String apellido;
+    private String fullName;
     private String email;
-    private int numero;
+    private int phone;
     private Localidad ubicacion;
 
-    public Usuario(int ID, String nombre, String apellido, String email, int numero, Localidad ubicacion) {
+    public Usuario(int ID, String fullName, String email, int phone, Localidad ubicacion) {
         this.ID = ID;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.fullName = fullName;
         this.email = email;
-        this.numero = numero;
+        this.phone = phone;
         this.ubicacion = ubicacion;
+    }
+
+    public Usuario() {
     }
 
     public int getID() {
@@ -35,20 +40,12 @@ public class Usuario {
         this.ID = ID;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getEmail() {
@@ -59,12 +56,12 @@ public class Usuario {
         this.email = email;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getPhone() {
+        return phone;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setPhone(int phone) {
+        this.phone = phone;
     }
 
     public Localidad getUbicacion() {
@@ -75,5 +72,5 @@ public class Usuario {
         this.ubicacion = ubicacion;
     }
     
-    
+
 }
