@@ -38,7 +38,7 @@ public class Usuario {
         return activo;
     }
 
-    public void setAlta(boolean activo) {
+    public void setActivo(boolean activo) {
         this.activo = activo;
     }
 

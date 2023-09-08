@@ -4,10 +4,7 @@
  */
 package com.equipoA.webapp.Entidades;
 
-/**
- *
- * @author akila
- */
+
 public class Proveedor {
     
     
