@@ -3,7 +3,6 @@ package com.equipoA.webapp.Servicios;
 import com.equipoA.webapp.Entidades.Usuario;
 import com.equipoA.webapp.Enum.Localidad;
 import com.equipoA.webapp.Repositorios.UsuarioRepositorio;
-import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -18,20 +18,30 @@ public class Usuario {
     protected String ID;
     protected String fullName;
     protected String email;
+    protected String password;
     protected int phone;
     protected Localidad ubicacion;
     protected boolean activo;
 
     public Usuario() {
     }
-    
-    public Usuario(String ID, String fullName, String email, int phone, Localidad ubicacion, boolean activo) {
+
+    public Usuario(String ID, String fullName, String email, String password, int phone, Localidad ubicacion, boolean activo) {
         this.ID = ID;
         this.fullName = fullName;
         this.email = email;
+        this.password = password;
         this.phone = phone;
         this.ubicacion = ubicacion;
         this.activo = activo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isActivo() {
