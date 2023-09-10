@@ -5,6 +5,7 @@
 package com.equipoA.webapp.Entidades;
 
 import com.equipoA.webapp.Enum.Localidad;
+import java.util.List;
 import javax.persistence.Entity;
 
 /**
@@ -15,21 +16,30 @@ import javax.persistence.Entity;
 public class Proveedor extends Usuario{
     
     private String id_nacional;
-    private Arraylist servicios;
+    private List<String> servicios;
     private boolean certificado;
     private int calificacion;
     private int cantidad_trabajos;
     private boolean nuevo_usuario;
 
-    public Proveedor(String id_nacional, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario) {
+    public Proveedor(String id_nacional, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario, List<String> servicios) {
         this.id_nacional = id_nacional;
         this.certificado = certificado;
         this.calificacion = calificacion;
         this.cantidad_trabajos = cantidad_trabajos;
         this.nuevo_usuario = nuevo_usuario;
+        this.servicios=servicios;
     }
 
     public Proveedor() {
+    }
+
+    public List<String> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<String> servicios) {
+        this.servicios = servicios;
     }
 
     public String getId_nacional() {

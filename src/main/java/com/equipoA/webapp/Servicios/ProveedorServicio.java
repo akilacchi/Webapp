@@ -38,7 +38,7 @@ public class ProveedorServicio extends UsuarioServicio {
     
     // hereda el método de creación de usuario y le añade los atributos propios de proveedor
     public void crearProveedor (String id, String fullName, String email, int phone, Localidad ubicacion,
-            String password, boolean activo, String idNacional,List<String> servicio, boolean certificado, int cantidadTrabajos, boolean nuevoUsuario  ) 
+            String password, boolean activo, String idNacional,List<String> servicios, boolean certificado, int cantidadTrabajos, boolean nuevoUsuario  ) 
             throws MiException {
        
        
@@ -46,7 +46,7 @@ public class ProveedorServicio extends UsuarioServicio {
        
         super.crearUsuario(fullName, email, phone, password, password, ubicacion);
         proveedor.setId_nacional(idNacional);
-        proveedor.setServicio(servicio);
+        proveedor.setServicios(servicios);
         proveedor.setCertificado(certificado);
         proveedor.setCantidad_trabajos(cantidadTrabajos);
         proveedor.setNuevo_usuario(nuevoUsuario);
@@ -59,7 +59,7 @@ public class ProveedorServicio extends UsuarioServicio {
 }
     
     public void editarPerfil (String id, String fullName, String email, int phone, Localidad ubicacion,
-            String password, boolean activo, String idNacional,List<String> servicio, boolean certificado, int cantidadTrabajos, boolean nuevoUsuario  ) 
+            String password, boolean activo, String idNacional,List<String> servicios, boolean certificado, int cantidadTrabajos, boolean nuevoUsuario  ) 
             throws MiException {
         
         super.validarId(id);
@@ -71,7 +71,7 @@ public class ProveedorServicio extends UsuarioServicio {
             
             Proveedor proveedor=respuesta.get();
             proveedor.setId_nacional(idNacional);
-            proveedor.setServicio(servicio);
+            proveedor.setServicios(servicios);
             proveedor.setCertificado(certificado);
             proveedor.setCantidad_trabajos(cantidadTrabajos);
             proveedor.setNuevo_usuario(nuevoUsuario);
