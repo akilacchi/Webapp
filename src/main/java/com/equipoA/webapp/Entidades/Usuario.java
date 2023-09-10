@@ -20,13 +20,13 @@ public class Usuario {
     protected String email;
     protected String password;
     protected int phone;
-    protected Localidad ubicacion;
+    protected String ubicacion;
     protected boolean activo;
 
     public Usuario() {
     }
 
-    public Usuario(String ID, String fullName, String email, String password, int phone, Localidad ubicacion, boolean activo) {
+    public Usuario(String ID, String fullName, String email, String password, int phone, String ubicacion, boolean activo) {
         this.ID = ID;
         this.fullName = fullName;
         this.email = email;
@@ -84,11 +84,11 @@ public class Usuario {
         this.phone = phone;
     }
 
-    public Localidad getUbicacion() {
+    public String getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(Localidad ubicacion) {
+    public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
     

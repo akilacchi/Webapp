@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xlmns:th="https://www.thymeleaf.org/">
+    <head>
+        <title>Registrar</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h1>Registrar</h1>
+            <form action="/RegistroUser/registro" method="POST">
+                <br>
+                <label>Nombre completo</label>
+                <br>
+                <input name="fullName">
+                <br>
+                <label>Email</label>
+                <br>
+                <input name="email" type="email">
+                <br>
+                <label>Numero telefono</label>
+                <br>
+                <input name="phone" type="number">
+                <br>
+                <label>Contraseña</label>
+                <br>
+                <input name="password" type="password">
+                <br>
+                <label>Repetir contraseña</label>
+                <br>
+                <input name="pass2" type="password">
+                <br>
+                <label for="localidad">Localidad:</label>
+                <br>
+                <select id="localidad" name="ubicacion">
+                    <option th:each="l: ${localidad}" th:value="${l}" th:text="${#strings.capitalize(l.toString().toLowerCase())}"> </option>
+                </select>
+                <br>
+                <br>
+                <button type="submit"> Registrarse </button>
+            </form>
+        </div>
+    </body>
+</html>
