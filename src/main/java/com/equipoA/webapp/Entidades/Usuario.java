@@ -4,8 +4,10 @@
  */
 package com.equipoA.webapp.Entidades;
 
-import com.equipoA.webapp.Enum.Localidad;
+import com.equipoA.webapp.Enum.Provincias;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
@@ -20,14 +22,18 @@ public class Usuario {
     protected String email;
     protected String password;
     protected int phone;
-    protected String ubicacion;
+    @Enumerated(EnumType.STRING)
+    protected Provincias ubicacion;
     protected boolean activo;
 
     public Usuario() {
     }
 
-    public Usuario(String ID, String fullName, String email, String password, int phone, String ubicacion, boolean activo) {
+    public Usuario(String ID) {
         this.ID = ID;
+    }
+    
+    public Usuario(String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
         this.fullName = fullName;
         this.email = email;
         this.password = password;
@@ -84,11 +90,11 @@ public class Usuario {
         this.phone = phone;
     }
 
-    public String getUbicacion() {
+    public Provincias getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(String ubicacion) {
+    public void setUbicacion(Provincias ubicacion) {
         this.ubicacion = ubicacion;
     }
     

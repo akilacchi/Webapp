@@ -1,6 +1,6 @@
 package com.equipoA.webapp.Controladores;
 
-import com.equipoA.webapp.Enum.Localidad;
+import com.equipoA.webapp.Enum.Provincias;
 import com.equipoA.webapp.Excepciones.MiException;
 import com.equipoA.webapp.Servicios.UsuarioServicio;
 import java.util.logging.Level;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegistroUsuarioController {
 
     @ModelAttribute
-    public Localidad[] getLocalidad(){
-        Localidad[] localidades = Localidad.values();
+    public Provincias[] getLocalidad(){
+        Provincias[] localidades = Provincias.values();
         System.out.println("numero de localidades: " + localidades.length);
-        return Localidad.values();
+        return Provincias.values();
     }
     
     @Autowired
@@ -36,7 +36,7 @@ public class RegistroUsuarioController {
 
     @PostMapping("/registro")
     public String registro(@RequestParam String fullName, @RequestParam String email, @RequestParam int phone,
-            @RequestParam String password, @RequestParam String pass2, @RequestParam String ubicacion) {
+            @RequestParam String password, @RequestParam String pass2, @RequestParam Provincias ubicacion) {
 
         try {
             usuarioServicio.crearUsuario(fullName, email, phone, password, pass2, ubicacion);

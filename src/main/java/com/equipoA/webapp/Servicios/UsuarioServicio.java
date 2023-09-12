@@ -1,7 +1,7 @@
 package com.equipoA.webapp.Servicios;
 
 import com.equipoA.webapp.Entidades.Usuario;
-import com.equipoA.webapp.Enum.Localidad;
+import com.equipoA.webapp.Enum.Provincias;
 import com.equipoA.webapp.Excepciones.MiException;
 import com.equipoA.webapp.Repositorios.UsuarioRepositorio;
 import java.util.Optional;
@@ -16,7 +16,7 @@ public class UsuarioServicio {
     private UsuarioRepositorio userRepo;
 
     @Transactional
-    public void crearUsuario(String fullName, String email, int phone, String password, String pass2, String ubicacion) throws MiException {
+    public void crearUsuario(String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
 
         //validacion datos
         validar(fullName, email, phone, password, pass2, ubicacion);
@@ -46,7 +46,7 @@ public class UsuarioServicio {
     }
 
     @Transactional
-    public void modificarUsuario(String Id, String fullName, String email, int phone, String password, String pass2, String ubicacion) throws MiException {
+    public void modificarUsuario(String Id, String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
         //verificacion que el id sea correcto
         validarId(Id);
         //búsqueda por id
@@ -111,7 +111,7 @@ public class UsuarioServicio {
     }
     
     //metodo para valorar todo excepto id
-    protected void validar(String fullName, String email, int phone, String password, String pass2, String ubicacion) throws MiException {
+    protected void validar(String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
         if (email == null || email.isEmpty()) {
             throw new MiException("Email no puede estar vacío");
         }
