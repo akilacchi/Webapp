@@ -4,12 +4,14 @@ package com.equipoA.webapp.Entidades;
 import com.equipoA.webapp.Enum.Provincias;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 
 @Entity
 public class Proveedor extends Usuario{
     
     private String id_nacional;
+    @OneToMany(mappedBy="proveedor")
     private List<Trabajo> servicios;
     private boolean certificado;
     private int calificacion;

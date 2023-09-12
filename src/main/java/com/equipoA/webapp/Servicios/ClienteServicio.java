@@ -30,9 +30,9 @@ public class ClienteServicio extends UsuarioServicio {
 
         Cliente cliente = new Cliente();
         super.crearUsuario(fullName, email, phone, password, pass2, ubicacion);
-        cliente.setComentarios(new ArrayList());
-        cliente.setHistorialDePedidos(new ArrayList());
-        cliente.setCalificacionesDadas(new ArrayList());
+//        cliente.setComentarios(new ArrayList());
+//        cliente.setHistorialDePedidos(new ArrayList());
+//        cliente.setCalificacionesDadas(new ArrayList());
         clienteRepo.save(cliente);
     }
 
