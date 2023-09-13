@@ -4,11 +4,12 @@
  */
 package com.equipoA.webapp.Servicios;
 
+import com.equipoA.webapp.Entidades.Calificacion;
 import com.equipoA.webapp.Entidades.Cliente;
+import com.equipoA.webapp.Entidades.Proveedor;
 import com.equipoA.webapp.Enum.Provincias;
 import com.equipoA.webapp.Excepciones.MiException;
 import com.equipoA.webapp.Repositorios.ClienteRepositorio;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -24,17 +25,17 @@ public class ClienteServicio extends UsuarioServicio {
 
     @Autowired
     private ClienteRepositorio clienteRepo;
-
-    @Transactional
-    public void crearCliente(String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
-
-        Cliente cliente = new Cliente();
-        super.crearUsuario(fullName, email, phone, password, pass2, ubicacion);
-//        cliente.setComentarios(new ArrayList());
-//        cliente.setHistorialDePedidos(new ArrayList());
-//        cliente.setCalificacionesDadas(new ArrayList());
-        clienteRepo.save(cliente);
-    }
+//
+//    @Transactional
+//    public void crearCliente(String direccion, List<Calificacion> calificacion, List<Proveedor> proveedoresCalificados, String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) throws MiException {
+//
+//        Cliente cliente = new Cliente();
+//        super.crearUsuario(fullName, email, phone, password, password, ubicacion);
+//        cliente.setDireccion(direccion);
+//        cliente.setProveedoresCalificados(proveedoresCalificados);
+//        cliente.setCalificacion(calificacion);
+//        clienteRepo.save(cliente);
+//    }
 
     @Transactional
     public void modificarCliente(String Id, String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {

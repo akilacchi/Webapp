@@ -1,26 +1,22 @@
-
 package com.equipoA.webapp.Entidades;
-
 
 import com.equipoA.webapp.Enum.Provincias;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-
 @Entity
-public class Proveedor extends Usuario{
-    
+public class Proveedor extends Usuario {
+
     private String id_nacional;
-    @OneToMany(mappedBy="proveedor")
+    @OneToMany(mappedBy = "proveedor")
     private List<Trabajo> servicios;
     private boolean certificado;
     private int calificacion;
     private int cantidad_trabajos;
     private boolean nuevo_usuario;
 
-    public Proveedor(String id_nacional, List<Trabajo> servicios, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario, String ID) {
-        super(ID);
+    public Proveedor(String id_nacional, List<Trabajo> servicios, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario) {
         this.id_nacional = id_nacional;
         this.servicios = servicios;
         this.certificado = certificado;
@@ -45,7 +41,7 @@ public class Proveedor extends Usuario{
         this.cantidad_trabajos = cantidad_trabajos;
         this.nuevo_usuario = nuevo_usuario;
     }
-    
+
     public Proveedor() {
     }
 
@@ -54,7 +50,7 @@ public class Proveedor extends Usuario{
     }
 
     public void setServicios(List<Trabajo> servicios) {
-      
+
         this.servicios = servicios;
     }
 
@@ -102,7 +98,7 @@ public class Proveedor extends Usuario{
 
     public void setUbicacion(Provincias ubicacion) {
 
-  super.setUbicacion(ubicacion); //To change body of generated methods, choose Tools | Templates.
+        super.setUbicacion(ubicacion); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -151,8 +147,5 @@ public class Proveedor extends Usuario{
     public String getID() {
         return super.getID(); //To change body of generated methods, choose Tools | Templates.
     }
-   
-    
 
 }
-

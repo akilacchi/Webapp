@@ -18,9 +18,7 @@ public class UsuarioServicio {
     private UsuarioRepositorio userRepo;
 
     @Transactional
-
     public void crearUsuario(String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
-
 
         //validacion datos
         validar(fullName, email, phone, password, pass2, ubicacion);
@@ -33,7 +31,7 @@ public class UsuarioServicio {
         } else if (respuestaPhone != null) {
             throw new MiException("Número de teléfono ya en uso");
         } else {
-        //creacion de usuario una vez la validacion haya finalizado    
+            //creacion de usuario una vez la validacion haya finalizado    
             Usuario user = new Usuario();
 
             user.setFullName(fullName);
@@ -49,7 +47,6 @@ public class UsuarioServicio {
 
     }
 
-
     @Transactional
     public void modificarUsuario(String Id, String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
 
@@ -57,7 +54,7 @@ public class UsuarioServicio {
         validarId(Id);
         //búsqueda por id
         Optional<Usuario> respuesta = userRepo.findById(Id);
-        
+
         if (respuesta.isPresent()) {
 
             validar(fullName, email, phone, password, pass2, ubicacion);
@@ -72,7 +69,6 @@ public class UsuarioServicio {
             userRepo.save(usr);
         }
     }
-
 
     @Transactional
 
@@ -89,7 +85,6 @@ public class UsuarioServicio {
         }
     }
 
-
     @Transactional
 
     public void desactivarUsuario(String Id) {
@@ -102,7 +97,6 @@ public class UsuarioServicio {
             userRepo.save(usr);
         }
     }
-
 
     @Transactional
 
@@ -121,9 +115,8 @@ public class UsuarioServicio {
             throw new MiException("ID incorrecto");
         }
     }
-    
-    //metodo para valorar todo excepto id
 
+    //metodo para valorar todo excepto id
     protected void validar(String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
 
         if (email == null || email.isEmpty()) {
@@ -162,4 +155,3 @@ public class UsuarioServicio {
     }
 
 }
-

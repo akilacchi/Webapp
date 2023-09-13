@@ -14,9 +14,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Usuario {
+
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name="uuid", strategy = "uuid2")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
 
     private String ID;
     private String fullName;
@@ -25,14 +26,16 @@ public class Usuario {
     private int phone;
     @Enumerated(EnumType.STRING)
     private Provincias ubicacion;
-    private String password;
     private boolean activo;
 
-    public Usuario(String ID, String fullName, String email, int phone, Localidad ubicacion, String password, boolean activo) {
+    public Usuario(String ID, String fullName, String email, int phone, Provincias ubicacion, String password, boolean activo) {
 
         this.ID = ID;
     }
-    
+
+    public Usuario() {
+    }
+
     public Usuario(String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
         this.fullName = fullName;
         this.email = email;
@@ -41,33 +44,10 @@ public class Usuario {
         this.ubicacion = ubicacion;
 
         this.password = password;
-        this.activo= activo;
-
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
         this.activo = activo;
-    }
-  
-    public boolean isActivo() {
-        return activo;
+
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
     public String getID() {
         return ID;
     }
@@ -80,11 +60,6 @@ public class Usuario {
         return fullName;
     }
 
-    public String getPassword() {
-        return password;
-    }
-    
-
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -95,6 +70,14 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getPhone() {
@@ -113,9 +96,14 @@ public class Usuario {
         this.ubicacion = ubicacion;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public boolean isActivo() {
+        return activo;
     }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    
     
 
 }

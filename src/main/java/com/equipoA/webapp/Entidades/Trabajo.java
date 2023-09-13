@@ -12,19 +12,20 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Trabajo {
+
     @Id
-    @GeneratedValue(generator="uuid")
-    @GenericGenerator(name="uuid" ,strategy="uuid")
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
     private String Id;
-    
+
     @ManyToOne
     @JoinColumn(name = "ocupacion")
     private Ocupaciones ocupacion;
-    
+
     @ManyToOne
     @JoinColumn(name = "proveedor_id")
     private Proveedor proveedor;
-    
+
     @Enumerated(EnumType.STRING)
     private EstadoTrabajo estado;
 
@@ -69,7 +70,5 @@ public class Trabajo {
     public void setEstado(EstadoTrabajo estado) {
         this.estado = estado;
     }
-    
- 
-    
+
 }

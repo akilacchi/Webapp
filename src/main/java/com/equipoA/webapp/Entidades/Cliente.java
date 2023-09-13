@@ -3,6 +3,7 @@ package com.equipoA.webapp.Entidades;
 import com.equipoA.webapp.Enum.Provincias;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Cliente extends Usuario {
@@ -11,7 +12,11 @@ public class Cliente extends Usuario {
 //    private List<String> historialDePedidos;
 //    private List<Integer> calificacionesDadas;
     private String direccion;
+    
+    @OneToMany(mappedBy = "cliente")
     private List<Calificacion> calificacion;
+    
+    @OneToMany
     private List<Proveedor> proveedoresCalificados;
 
     public Cliente(String direccion, List<Calificacion> calificacion, List<Proveedor> proveedoresCalificados, String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
@@ -44,6 +49,5 @@ public class Cliente extends Usuario {
     public void setProveedoresCalificados(List<Proveedor> proveedoresCalificados) {
         this.proveedoresCalificados = proveedoresCalificados;
     }
-
 
 }
