@@ -4,8 +4,10 @@
  */
 package com.equipoA.webapp.Entidades;
 
-import com.equipoA.webapp.Enum.Localidad;
+import com.equipoA.webapp.Enum.Provincias;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
@@ -15,34 +17,73 @@ public class Usuario {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid", strategy = "uuid2")
-    private int ID;
+
+    private String ID;
     private String fullName;
     private String email;
+    protected String password;
     private int phone;
-    private Localidad ubicacion;
+    @Enumerated(EnumType.STRING)
+    private Provincias ubicacion;
+    private String password;
+    private boolean activo;
 
-    public Usuario(int ID, String fullName, String email, int phone, Localidad ubicacion) {
+    public Usuario(String ID, String fullName, String email, int phone, Localidad ubicacion, String password, boolean activo) {
+
         this.ID = ID;
+    }
+    
+    public Usuario(String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
         this.fullName = fullName;
         this.email = email;
+        this.password = password;
         this.phone = phone;
         this.ubicacion = ubicacion;
+
+        this.password = password;
+        this.activo= activo;
+
     }
 
-    public Usuario() {
+    public String getPassword() {
+        return password;
     }
 
-    public int getID() {
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+  
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
     public String getFullName() {
         return fullName;
     }
+
+    public String getPassword() {
+        return password;
+    }
+    
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -64,12 +105,16 @@ public class Usuario {
         this.phone = phone;
     }
 
-    public Localidad getUbicacion() {
+    public Provincias getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(Localidad ubicacion) {
+    public void setUbicacion(Provincias ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
 
