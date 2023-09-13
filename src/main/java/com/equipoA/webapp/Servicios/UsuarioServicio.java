@@ -1,7 +1,9 @@
 package com.equipoA.webapp.Servicios;
 
 import com.equipoA.webapp.Entidades.Usuario;
-import com.equipoA.webapp.Enum.Localidad;
+
+import com.equipoA.webapp.Enum.Provincias;
+
 import com.equipoA.webapp.Excepciones.MiException;
 import com.equipoA.webapp.Repositorios.UsuarioRepositorio;
 import java.util.Optional;
@@ -16,7 +18,9 @@ public class UsuarioServicio {
     private UsuarioRepositorio userRepo;
 
     @Transactional
-    public void crearUsuario(String fullName, String email, int phone, String password, String pass2, Localidad ubicacion) throws MiException {
+
+    public void crearUsuario(String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
+
 
         //validacion datos
         validar(fullName, email, phone, password, pass2, ubicacion);
@@ -45,7 +49,10 @@ public class UsuarioServicio {
 
     }
 
-    public void modificarUsuario(String Id, String fullName, String email, int phone, String password, String pass2, Localidad ubicacion) throws MiException {
+
+    @Transactional
+    public void modificarUsuario(String Id, String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
+
         //verificacion que el id sea correcto
         validarId(Id);
         //búsqueda por id
@@ -66,6 +73,9 @@ public class UsuarioServicio {
         }
     }
 
+
+    @Transactional
+
     public void cambiarContraseñaYEmail(String Id, String email, String password, String pass2) throws MiException {
         validar(Id, email, password, pass2);
 
@@ -79,6 +89,9 @@ public class UsuarioServicio {
         }
     }
 
+
+    @Transactional
+
     public void desactivarUsuario(String Id) {
         Optional<Usuario> respuesta = userRepo.findById(Id);
         if (respuesta.isPresent()) {
@@ -89,6 +102,9 @@ public class UsuarioServicio {
             userRepo.save(usr);
         }
     }
+
+
+    @Transactional
 
     public void eliminarUsuario(String Id) {
         Optional<Usuario> respuesta = userRepo.findById(Id);
@@ -107,7 +123,9 @@ public class UsuarioServicio {
     }
     
     //metodo para valorar todo excepto id
-    protected void validar(String fullName, String email, int phone, String password, String pass2, Localidad ubicacion) throws MiException {
+
+    protected void validar(String fullName, String email, int phone, String password, String pass2, Provincias ubicacion) throws MiException {
+
         if (email == null || email.isEmpty()) {
             throw new MiException("Email no puede estar vacío");
         }
@@ -142,4 +160,6 @@ public class UsuarioServicio {
             throw new MiException("Contraseñas no coinciden");
         }
     }
+
 }
+

@@ -19,7 +19,5 @@ public interface UsuarioRepositorio extends JpaRepository<Usuario, String>{
     @Query("SELECT u FROM Usuario u WHERE u.phone = :phone")
     public Usuario buscarPorTelefono(@Param("phone") int phone );
 
-    
 
-   
 }

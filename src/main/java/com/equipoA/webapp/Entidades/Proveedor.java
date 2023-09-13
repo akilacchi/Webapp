@@ -1,44 +1,60 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.equipoA.webapp.Entidades;
 
-import com.equipoA.webapp.Enum.Localidad;
+
+import com.equipoA.webapp.Enum.Provincias;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
-/**
- *
- * @author akila
- */
+
 @Entity
 public class Proveedor extends Usuario{
     
     private String id_nacional;
-    private List<String> servicios;
+    @OneToMany(mappedBy="proveedor")
+    private List<Trabajo> servicios;
     private boolean certificado;
     private int calificacion;
     private int cantidad_trabajos;
     private boolean nuevo_usuario;
 
-    public Proveedor(String id_nacional, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario, List<String> servicios) {
+    public Proveedor(String id_nacional, List<Trabajo> servicios, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario, String ID) {
+        super(ID);
         this.id_nacional = id_nacional;
+        this.servicios = servicios;
         this.certificado = certificado;
         this.calificacion = calificacion;
         this.cantidad_trabajos = cantidad_trabajos;
         this.nuevo_usuario = nuevo_usuario;
-        this.servicios=servicios;
     }
 
+    public Proveedor(List<Trabajo> servicios, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario) {
+        this.servicios = servicios;
+        this.certificado = certificado;
+        this.calificacion = calificacion;
+        this.cantidad_trabajos = cantidad_trabajos;
+        this.nuevo_usuario = nuevo_usuario;
+    }
+
+    public Proveedor(List<Trabajo> servicios, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario, String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
+        super(fullName, email, password, phone, ubicacion, activo);
+        this.servicios = servicios;
+        this.certificado = certificado;
+        this.calificacion = calificacion;
+        this.cantidad_trabajos = cantidad_trabajos;
+        this.nuevo_usuario = nuevo_usuario;
+    }
+    
     public Proveedor() {
     }
 
-    public List<String> getServicios() {
+    public List<Trabajo> getServicios() {
         return servicios;
     }
 
-    public void setServicios(List<String> servicios) {
+    public void setServicios(List<Trabajo> servicios) {
+      
         this.servicios = servicios;
     }
 
@@ -83,12 +99,16 @@ public class Proveedor extends Usuario{
     }
 
     @Override
-    public void setUbicacion(Localidad ubicacion) {
-        super.setUbicacion(ubicacion); //To change body of generated methods, choose Tools | Templates.
+
+    public void setUbicacion(Provincias ubicacion) {
+
+  super.setUbicacion(ubicacion); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Localidad getUbicacion() {
+
+    public Provincias getUbicacion() {
+
         return super.getUbicacion(); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -133,6 +153,6 @@ public class Proveedor extends Usuario{
     }
    
     
-}
 
+}
 
