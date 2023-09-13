@@ -17,19 +17,19 @@ public class Usuario {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid", strategy = "uuid2")
-    protected String ID;
-    protected String fullName;
-    protected String email;
+
+    private String ID;
+    private String fullName;
+    private String email;
     protected String password;
-    protected int phone;
+    private int phone;
     @Enumerated(EnumType.STRING)
-    protected Provincias ubicacion;
-    protected boolean activo;
+    private Provincias ubicacion;
+    private String password;
+    private boolean activo;
 
-    public Usuario() {
-    }
+    public Usuario(String ID, String fullName, String email, int phone, Localidad ubicacion, String password, boolean activo) {
 
-    public Usuario(String ID) {
         this.ID = ID;
     }
     
@@ -39,7 +39,10 @@ public class Usuario {
         this.password = password;
         this.phone = phone;
         this.ubicacion = ubicacion;
-        this.activo = activo;
+
+        this.password = password;
+        this.activo= activo;
+
     }
 
     public String getPassword() {
@@ -57,7 +60,14 @@ public class Usuario {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+  
+    public boolean isActivo() {
+        return activo;
+    }
 
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
     public String getID() {
         return ID;
     }
@@ -69,6 +79,11 @@ public class Usuario {
     public String getFullName() {
         return fullName;
     }
+
+    public String getPassword() {
+        return password;
+    }
+    
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -96,6 +111,10 @@ public class Usuario {
 
     public void setUbicacion(Provincias ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
     
 

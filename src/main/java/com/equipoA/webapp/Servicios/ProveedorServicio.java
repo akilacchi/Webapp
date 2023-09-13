@@ -13,11 +13,13 @@ package com.equipoA.webapp.Servicios;
 package com.equipoA.webapp.Servicios;
 
 import com.equipoA.webapp.Entidades.Proveedor;
+
 import com.equipoA.webapp.Entidades.Trabajo;
 import com.equipoA.webapp.Enum.Provincias;
 import com.equipoA.webapp.Excepciones.MiException;
 import com.equipoA.webapp.Repositorios.ProveedorRepositorio;
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -28,6 +30,7 @@ import org.springframework.stereotype.Service;
  *
  * @author alejandrasuarez
  */
+
 @Service
 public class ProveedorServicio extends UsuarioServicio {
 
@@ -67,15 +70,21 @@ public class ProveedorServicio extends UsuarioServicio {
         if (respuesta.isPresent()) {
 
             Proveedor proveedor = respuesta.get();
+
             proveedor.setId_nacional(idNacional);
             proveedor.setServicios(servicios);
             proveedor.setCertificado(certificado);
             proveedor.setCantidad_trabajos(cantidadTrabajos);
             proveedor.setNuevo_usuario(nuevoUsuario);
 
+            
             proveedorRepositorio.save(proveedor);
         }
-
+        
+        
+        
+        
     }
+    
 
 }

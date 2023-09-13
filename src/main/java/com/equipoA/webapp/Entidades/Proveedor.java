@@ -1,6 +1,7 @@
 
 package com.equipoA.webapp.Entidades;
 
+
 import com.equipoA.webapp.Enum.Provincias;
 import java.util.List;
 import javax.persistence.Entity;
@@ -53,6 +54,7 @@ public class Proveedor extends Usuario{
     }
 
     public void setServicios(List<Trabajo> servicios) {
+      
         this.servicios = servicios;
     }
 
@@ -97,12 +99,16 @@ public class Proveedor extends Usuario{
     }
 
     @Override
+
     public void setUbicacion(Provincias ubicacion) {
-        super.setUbicacion(ubicacion); //To change body of generated methods, choose Tools | Templates.
+
+  super.setUbicacion(ubicacion); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
+
     public Provincias getUbicacion() {
+
         return super.getUbicacion(); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -147,4 +153,6 @@ public class Proveedor extends Usuario{
     }
    
     
+
 }
+
