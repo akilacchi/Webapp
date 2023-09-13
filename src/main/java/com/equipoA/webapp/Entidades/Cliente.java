@@ -10,48 +10,40 @@ public class Cliente extends Usuario {
 //    private List<String> comentarios;
 //    private List<String> historialDePedidos;
 //    private List<Integer> calificacionesDadas;
+    private String direccion;
+    private List<Calificacion> calificacion;
+    private List<Proveedor> proveedoresCalificados;
 
-    public Cliente() {
-    }
-
-    public Cliente(List<String> comentarios, List<String> historialDePedidos, List<Integer> calificacionesDadas, String ID) {
-        super(ID);
-//        this.comentarios = comentarios;
-//        this.historialDePedidos = historialDePedidos;
-//        this.calificacionesDadas = calificacionesDadas;
-    }
-
-    public Cliente(List<String> comentarios, List<String> historialDePedidos, List<Integer> calificacionesDadas, String ID, String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
+    public Cliente(String direccion, List<Calificacion> calificacion, List<Proveedor> proveedoresCalificados, String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
         super(fullName, email, password, phone, ubicacion, activo);
-//        this.comentarios = comentarios;
-//        this.historialDePedidos = historialDePedidos;
-//        this.calificacionesDadas = calificacionesDadas;
+        this.direccion = direccion;
+        this.calificacion = calificacion;
+        this.proveedoresCalificados = proveedoresCalificados;
     }
 
-//    public List<String> getComentarios() {
-//        return comentarios;
-//    }
-//
-//    public void setComentarios(List<String> comentarios) {
-//        this.comentarios = comentarios;
-//    }
-//
-//    public List<String> getHistorialDePedidos() {
-//        return historialDePedidos;
-//    }
-//
-//    public void setHistorialDePedidos(List<String> historialDePedidos) {
-//        this.historialDePedidos = historialDePedidos;
-//    }
+    public String getDireccion() {
+        return direccion;
+    }
 
-//    public List<Integer> getCalificacionesDadas() {
-//        return calificacionesDadas;
-//    }
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
-//    public void setCalificacionesDadas(List<Integer> calificacionesDadas) {
-//        this.calificacionesDadas = calificacionesDadas;
-//    }
+    public List<Calificacion> getCalificacion() {
+        return calificacion;
+    }
+
+    public void setCalificacion(List<Calificacion> calificacion) {
+        this.calificacion = calificacion;
+    }
+
+    public List<Proveedor> getProveedoresCalificados() {
+        return proveedoresCalificados;
+    }
+
+    public void setProveedoresCalificados(List<Proveedor> proveedoresCalificados) {
+        this.proveedoresCalificados = proveedoresCalificados;
+    }
 
 
-    
 }
