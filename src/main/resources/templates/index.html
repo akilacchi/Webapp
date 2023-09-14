@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
-
-<html lang="es">
+<html lang="es" xmlns:th="https://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -14,18 +12,7 @@
 </head>
 
 <body class="body">
-    <header class="header">
-        <nav class="nav">
-            <!-- Img/logoReparoYaBlanco.png -->
-            <img class="nav_img" src="Img/logoReparoYaBlanco.png" alt=""> 
-            <ul class="nav_ul">
-                <li class="nav_ul_li"> <a class="nav_ul_li_a" href="">Servicios</a></li>
-                <li class="nav_ul_li"> <a class="nav_ul_li_a" href="">Contacto</a></li>
-                <li class="nav_ul_li"> <a class="nav_ul_li_a" href="">Preguntas Frecuentes</a></li>
-                <li class="nav_ul_li"> <a class="nav_ul_li_a_sesion" href="">Iniciar Sesión</a></li>
-            </ul>
-        </nav>
-    </header>
+    <<nav th:replace="components/navbar :: nav_bar"></nav>
     <main class="main">
         <section class="main_section">
             <p class="main_section_p">
