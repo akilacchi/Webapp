@@ -72,6 +72,8 @@ public class Usuario {
     public void setUbicacion(Localidad ubicacion) {
         this.ubicacion = ubicacion;
     }
+
+   
     
 
 }
