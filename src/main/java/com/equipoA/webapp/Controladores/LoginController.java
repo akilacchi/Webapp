@@ -1,4 +1,3 @@
-
 package com.equipoA.webapp.Controladores;
 
 import org.springframework.stereotype.Controller;
@@ -10,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-    
+
     @GetMapping("/")
-    public String loggeo(){
+    public String loggeo() {
         return "login.html";
     }
-    
+
     @PostMapping("/log")
-    public String processLogin(@RequestParam("email") String email, @RequestParam("password") String password){
+    public String processLogin(@RequestParam("email") String email, @RequestParam("password") String password) {
         return "redirect:/";
     }
 }

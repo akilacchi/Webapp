@@ -8,22 +8,24 @@ import javax.persistence.OneToMany;
 @Entity
 public class Cliente extends Usuario {
 
-//    private List<String> comentarios;
-//    private List<String> historialDePedidos;
-//    private List<Integer> calificacionesDadas;
     private String direccion;
-    
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Trabajo> trabajos;
+
     @OneToMany(mappedBy = "cliente")
     private List<Calificacion> calificacion;
-    
-    @OneToMany
-    private List<Proveedor> proveedoresCalificados;
 
-    public Cliente(String direccion, List<Calificacion> calificacion, List<Proveedor> proveedoresCalificados, String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
+//    @OneToMany
+//    private List<Proveedor> proveedoresCalificados;
+    public Cliente() {
+    }
+
+    public Cliente(String direccion, List<Trabajo> trabajos, List<Calificacion> calificacion, String fullName, String email, String password, int phone, Provincias ubicacion, boolean activo) {
         super(fullName, email, password, phone, ubicacion, activo);
         this.direccion = direccion;
+        this.trabajos = trabajos;
         this.calificacion = calificacion;
-        this.proveedoresCalificados = proveedoresCalificados;
     }
 
     public String getDireccion() {
@@ -34,6 +36,14 @@ public class Cliente extends Usuario {
         this.direccion = direccion;
     }
 
+    public List<Trabajo> getTrabajos() {
+        return trabajos;
+    }
+
+    public void setTrabajos(List<Trabajo> trabajos) {
+        this.trabajos = trabajos;
+    }
+
     public List<Calificacion> getCalificacion() {
         return calificacion;
     }
@@ -42,12 +52,11 @@ public class Cliente extends Usuario {
         this.calificacion = calificacion;
     }
 
-    public List<Proveedor> getProveedoresCalificados() {
-        return proveedoresCalificados;
-    }
-
-    public void setProveedoresCalificados(List<Proveedor> proveedoresCalificados) {
-        this.proveedoresCalificados = proveedoresCalificados;
-    }
-
+//    public List<Proveedor> getProveedoresCalificados() {
+//        return proveedoresCalificados;
+//    }
+//
+//    public void setProveedoresCalificados(List<Proveedor> proveedoresCalificados) {
+//        this.proveedoresCalificados = proveedoresCalificados;
+//    }
 }

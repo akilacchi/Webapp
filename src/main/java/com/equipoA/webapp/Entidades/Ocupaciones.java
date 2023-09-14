@@ -7,9 +7,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Ocupaciones {
+
     @Id
-    @GeneratedValue(generator="uuid")
-    @GenericGenerator(name="uuid", strategy="uuid2")
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String ocupación;
 
@@ -33,5 +34,5 @@ public class Ocupaciones {
         this.id = id;
         this.ocupación = ocupación;
     }
-    
+
 }

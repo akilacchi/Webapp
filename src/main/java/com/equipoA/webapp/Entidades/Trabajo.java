@@ -17,7 +17,11 @@ public class Trabajo {
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid")
     private String Id;
-
+    
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Cliente cliente;
+    
     @ManyToOne
     @JoinColumn(name = "ocupacion")
     private Ocupaciones ocupacion;

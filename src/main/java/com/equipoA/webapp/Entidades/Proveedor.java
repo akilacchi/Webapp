@@ -1,6 +1,7 @@
 package com.equipoA.webapp.Entidades;
 
 import com.equipoA.webapp.Enum.Provincias;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -15,6 +16,19 @@ public class Proveedor extends Usuario {
     private int calificacion;
     private int cantidad_trabajos;
     private boolean nuevo_usuario;
+    
+    @OneToMany(mappedBy = "proveedor")
+    private List<Calificacion> calificaciones = new ArrayList<>();
+
+    public List<Calificacion> getCalificaciones() {
+        return calificaciones;
+    }
+
+    public void setCalificaciones(List<Calificacion> calificaciones) {
+        this.calificaciones = calificaciones;
+    }
+    
+    
 
     public Proveedor(String id_nacional, List<Trabajo> servicios, boolean certificado, int calificacion, int cantidad_trabajos, boolean nuevo_usuario) {
         this.id_nacional = id_nacional;

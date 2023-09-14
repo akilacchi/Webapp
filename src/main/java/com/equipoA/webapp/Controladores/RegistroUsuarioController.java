@@ -3,8 +3,6 @@ package com.equipoA.webapp.Controladores;
 import com.equipoA.webapp.Enum.Provincias;
 import com.equipoA.webapp.Excepciones.MiException;
 import com.equipoA.webapp.Servicios.UsuarioServicio;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,17 +17,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegistroUsuarioController {
 
     @ModelAttribute
-    public Provincias[] getLocalidad(){
+    public Provincias[] getLocalidad() {
         Provincias[] localidades = Provincias.values();
         System.out.println("numero de localidades: " + localidades.length);
         return Provincias.values();
     }
-    
+
     @Autowired
     UsuarioServicio usuarioServicio;
 
     @GetMapping("/")
-    public String registrar( Model model) {
+    public String registrar(Model model) {
         model.addAttribute("localidad", getLocalidad());
         return "registro.html";
     }

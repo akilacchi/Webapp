@@ -1,15 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
-
-/*private String id_nacional;
-    private boolean certificado;
-    private int calificacion;
-    private int cantidad_trabajos;
-    private boolean nuevo_usuario;
-package com.equipoA.webapp.Servicios;
- */
 package com.equipoA.webapp.Servicios;
 
 import com.equipoA.webapp.Entidades.Proveedor;
@@ -30,7 +18,6 @@ import org.springframework.stereotype.Service;
  *
  * @author alejandrasuarez
  */
-
 @Service
 public class ProveedorServicio extends UsuarioServicio {
 
@@ -77,14 +64,9 @@ public class ProveedorServicio extends UsuarioServicio {
             proveedor.setCantidad_trabajos(cantidadTrabajos);
             proveedor.setNuevo_usuario(nuevoUsuario);
 
-            
             proveedorRepositorio.save(proveedor);
         }
-        
-        
-        
-        
+
     }
-    
 
 }
