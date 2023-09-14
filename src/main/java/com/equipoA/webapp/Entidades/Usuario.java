@@ -15,21 +15,41 @@ public class Usuario {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid", strategy = "uuid2")
-    private String ID;
-    private String fullName;
-    private String email;
-    private int phone;
-    private Localidad ubicacion;
+    protected String ID;
+    protected String fullName;
+    protected String email;
+    protected String password;
+    protected int phone;
+    protected String ubicacion;
+    protected boolean activo;
 
     public Usuario() {
     }
 
-    public Usuario(String ID, String fullName, String email, int phone, Localidad ubicacion) {
+    public Usuario(String ID, String fullName, String email, String password, int phone, String ubicacion, boolean activo) {
         this.ID = ID;
         this.fullName = fullName;
         this.email = email;
+        this.password = password;
         this.phone = phone;
         this.ubicacion = ubicacion;
+        this.activo = activo;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
     }
 
     public String getID() {
@@ -64,15 +84,13 @@ public class Usuario {
         this.phone = phone;
     }
 
-    public Localidad getUbicacion() {
+    public String getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(Localidad ubicacion) {
+    public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-
-   
     
 
 }
