@@ -15,28 +15,29 @@ public class Usuario {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name="uuid", strategy = "uuid2")
-    private int ID;
+    private String ID;
     private String fullName;
     private String email;
     private int phone;
     private Localidad ubicacion;
 
-    public Usuario(int ID, String fullName, String email, int phone, Localidad ubicacion) {
+    public Usuario() {
+    }
+
+    public Usuario(String ID, String fullName, String email, int phone, Localidad ubicacion) {
         this.ID = ID;
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
         this.ubicacion = ubicacion;
     }
+    
 
-    public Usuario() {
-    }
-
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
