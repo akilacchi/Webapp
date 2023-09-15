@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Style/css/Style-seleccion-cliente -usuario.css">
+  <title>Registrar</title>
+</head>
+<body>
+  <div class="contenedor-formulario">
+    <div class="imagen-formulario">
+      <div class="texto">
+        <h2>¡Bienvenido!<br></h2>
+      </div>
+    </div>
+    <div class="cuerpo-formulario">
+      <div class="encabezado">
+        <h2>Registro</h2>
+        <p>¿Ya tienes una cuenta? <a href="Ingreso.html">Inicia sesión</a></p>
+      </div>
+      <!-- Sección de selección de tipo (Cliente o Proveedor) -->
+      <div class="seleccion">
+        <div class="opcion" id="clienteOption" onclick="mostrarFormulario('cliente')">
+          <img src="imagenes y logos/icono-usuario.png" alt="Cliente">
+          <p>Cliente</p>
+        </div>
+        <div class="opcion" id="proveedorOption" onclick="mostrarFormulario('proveedor')">
+          <img src="imagenes y logos/icono-profesional.png" alt="Proveedor">
+          <p>Proveedor</p>
+        </div>
+      </div>
+      <!-- Formulario oculto de Cliente -->
+      <div class="formulario" id="formularioCliente">
+        <form>
+          <!-- Campos del formulario de Cliente -->
+          <div class="grupo-formulario">
+            <label>Nombre completo</label>
+            <input type="text" name="fullName" placeholder="Nombre completo">
+          </div>
+          <div class="grupo-formulario">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Correo electrónico">
+          </div>
+          <div class="grupo-formulario">
+            <label>Número de teléfono</label>
+            <input type="number" name="phone" placeholder="Número de teléfono">
+          </div>
+          <div class="grupo-formulario">
+            <label for="localidad">Localidad:</label>
+            <select id="localidad" name="ubicacion">
+              <option th:each="l: ${localidad}" th:value="${l}" th:text="${#strings.capitalize(l.toString().toLowerCase())}"> </option>
+            </select>
+          </div>
+          <div class="grupo-formulario">
+            <label>Contraseña</label>
+            <input type="password" name="password" placeholder="Contraseña">
+          </div>
+          <div class="grupo-formulario">
+            <label>Repetir contraseña</label>
+            <input type="password" name="pass2" placeholder="Repetir contraseña">
+          </div>
+          <div class="grupo-formulario">
+            <button type="submit" class="boton-formulario">Registrarse</button>
+          </div>
+        </form>
+      </div>
+      <!-- Formulario oculto de Proveedor -->
+      <div class="formulario" id="formularioProveedor">
+        <form>
+          <!-- Campos del formulario de Proveedor -->
+          <div class="grupo-formulario">
+            <label>Nombre completo</label>
+            <input type="text" name="fullName" placeholder="Nombre completo">
+          </div>
+          <div class="grupo-formulario">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Correo electrónico">
+          </div>
+          <div class="grupo-formulario">
+            <label>Número de teléfono</label>
+            <input type="number" name="phone" placeholder="Número de teléfono">
+          </div>
+          <div class="grupo-formulario">
+            <label for="servicio"> Servicio que provee</label>
+            <select id="servicio" name="servicio">
+             
+            </select>
+          </div>
+          <div class="grupo-formulario">
+            <label for="certificacion">¿Tienes certificación?</label>
+            <select id="certificacion" name="certificacion">
+              <option value="1">si</option>
+              <option value="2">no</option> 
+            </select>
+          </div>
+          <div class="grupo-formulario">
+            <label for="localidad">Localidad:</label>
+            <select id="localidad" name="ubicacion">
+              <option th:each="l: ${localidad}" th:value="${l}" th:text="${#strings.capitalize(l.toString().toLowerCase())}"> </option>
+            </select>
+          </div>
+          <div class="grupo-formulario">
+            <label>Contraseña</label>
+            <input type="password" name="password" placeholder="Contraseña">
+          </div>
+          <div class="grupo-formulario">
+            <label>Repetir contraseña</label>
+            <input type="password" name="pass2" placeholder="Repetir contraseña">
+          </div>
+          <div class="grupo-formulario">
+            <button type="submit" class="boton-formulario">Registrarse</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="accione.js"></script>
+</body>
+</html>
